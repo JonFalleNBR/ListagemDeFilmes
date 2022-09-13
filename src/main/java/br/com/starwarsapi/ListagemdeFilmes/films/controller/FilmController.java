@@ -3,6 +3,7 @@ package br.com.starwarsapi.ListagemdeFilmes.films.controller;
 
 import br.com.starwarsapi.ListagemdeFilmes.films.client.FilmClient;
 import br.com.starwarsapi.ListagemdeFilmes.films.dto.StarWarsApiResponse;
+import br.com.starwarsapi.ListagemdeFilmes.films.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -14,17 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 public class FilmController {
 
     @Autowired
-    private FilmClient filmClient;
+    private FilmService filmService;
 
     @GetMapping
     public StarWarsApiResponse findAll(){
-        return filmClient.findAll()
-                .orElse(new StarWarsApiResponse());
+        return filmService.findAll();
     }
 
     @GetMapping("title/{title}")
     public StarWarsApiResponse findMovieByTitle(@PathVariable String title){
-        return filmClient.findByMovieTitle(title)
-                .orElse(new StarWarsApiResponse());
+        return filmService.findMovieByTitle(title);
     }
 }
