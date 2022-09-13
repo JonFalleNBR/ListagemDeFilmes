@@ -23,5 +23,7 @@ public class FilmResponse {
     @JsonProperty("release_date")
     private String releaseDate;
 
+    @JsonProperty("opening_crawl")
+    private String openingCrawl;
 
 }
