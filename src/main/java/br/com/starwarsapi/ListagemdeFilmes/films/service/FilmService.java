@@ -45,7 +45,7 @@ public class FilmService {
     }
 
 
-    public StarWarsApiResponse findbyProducer(@PathVariable String producer){
+    public StarWarsApiResponse findByProducer(@PathVariable String producer){
         try {
             return filmClient.findByProducer(producer)
                     .orElse(new StarWarsApiResponse());
@@ -54,10 +54,6 @@ public class FilmService {
             return StarWarsApiResponse.creatEmptyResult();
         }
     }
-
-//    public StarWarsApiResponse updateFilms(){
-//
-//    }
 
 }
 

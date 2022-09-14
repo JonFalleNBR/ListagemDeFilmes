@@ -12,7 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 public class StarWarsApiResponse {
 
-    private List<FilmResponse> results;
+    private List<FilmList> results;
 
     public static StarWarsApiResponse creatEmptyResult(){
         var response = new StarWarsApiResponse();

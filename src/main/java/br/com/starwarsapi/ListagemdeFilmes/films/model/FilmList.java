@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FilmResponse {
+public class FilmList {
 
     private String title;
 
@@ -28,4 +28,10 @@ public class FilmResponse {
 
     private Integer version;
 
+    public FilmList(String title, Integer episodeId, String director, Integer version) {
+        this.title = title;
+        this.episodeId = episodeId;
+        this.director = director;
+        this.version = version;
+    }
 }

@@ -1,7 +1,9 @@
 package br.com.starwarsapi.ListagemdeFilmes.films.controller;
 
 
+import br.com.starwarsapi.ListagemdeFilmes.films.model.FilmList;
 import br.com.starwarsapi.ListagemdeFilmes.films.model.StarWarsApiResponse;
+import br.com.starwarsapi.ListagemdeFilmes.films.model.dto.DescriptionDTO;
 import br.com.starwarsapi.ListagemdeFilmes.films.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,12 +11,21 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Arrays;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/movies")
 public class FilmController {
 
     @Autowired
     private FilmService filmService;
+
+    @RequestMapping("/")
+    public List<DescriptionDTO> lista(){
+        FilmList filmList = new FilmList("A new Hope", 4, "George Lucas", 1);
+        return DescriptionDTO.converter(Arrays.asList(filmList,filmList,filmList,filmList,filmList,filmList));
+    }
 
     @GetMapping
     public StarWarsApiResponse findAll() {
@@ -29,7 +40,7 @@ public class FilmController {
 
     @GetMapping("producer/{producer}")
     public StarWarsApiResponse findByProducer(@PathVariable String producer) {
-        return filmService.findbyProducer(producer);
+        return filmService.findByProducer(producer);
     }
 
     @GetMapping("id/{episode_id}")
