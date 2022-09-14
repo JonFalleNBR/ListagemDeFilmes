@@ -43,5 +43,21 @@ public class FilmService {
             return StarWarsApiResponse.creatEmptyResult();
         }
     }
+
+
+    public StarWarsApiResponse findbyProducer(@PathVariable String producer){
+        try {
+            return filmClient.findByProducer(producer)
+                    .orElse(new StarWarsApiResponse());
+        }catch (Exception e){
+            e.printStackTrace();
+            return StarWarsApiResponse.creatEmptyResult();
+        }
+    }
+
+//    public StarWarsApiResponse updateFilms(){
+//
+//    }
+
 }
 

@@ -22,14 +22,17 @@ public class FilmController {
     }
 
 
-
-
     @GetMapping("title/{title}")
     public StarWarsApiResponse findMovieByTitle(@PathVariable String title) {
         return filmService.findMovieByTitle(title);
     }
 
-    @GetMapping("episodeId/{episode_id}")
+    @GetMapping("producer/{producer}")
+    public StarWarsApiResponse findByProducer(@PathVariable String producer) {
+        return filmService.findbyProducer(producer);
+    }
+
+    @GetMapping("id/{episode_id}")
     public StarWarsApiResponse findMovieById(@PathVariable Long id) {
         return filmService.findMovieById(id);
 

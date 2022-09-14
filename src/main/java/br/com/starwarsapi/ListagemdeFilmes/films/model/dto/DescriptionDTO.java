@@ -13,4 +13,5 @@ public class DescriptionDTO {
     private String director;
     private String openingCrawl;
     private LocalDateTime releaseDate;
+    private Integer version;
 }

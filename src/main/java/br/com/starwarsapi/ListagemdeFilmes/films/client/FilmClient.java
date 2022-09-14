@@ -20,8 +20,11 @@ public interface FilmClient {
     @GetMapping()
     Optional<StarWarsApiResponse> findByMovieTitle(@RequestParam(name = "search") String movieTitle);
 
-    @GetMapping()
-    Optional<StarWarsApiResponse> findMovieById(@RequestParam(name = "search") Long movieId);
 
+    @GetMapping()
+    Optional<StarWarsApiResponse> findMovieById(@RequestParam(name = "find") Long movieId);
+
+    @GetMapping()
+    Optional<StarWarsApiResponse> findByProducer(@RequestParam(name = "search") String producer);
 
 }

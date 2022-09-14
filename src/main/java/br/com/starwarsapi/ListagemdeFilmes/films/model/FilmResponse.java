@@ -26,4 +26,6 @@ public class FilmResponse {
     @JsonProperty("opening_crawl")
     private String openingCrawl;
 
+    private Integer version;
+
 }
