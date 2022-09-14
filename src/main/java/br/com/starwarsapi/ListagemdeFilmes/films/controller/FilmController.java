@@ -1,8 +1,7 @@
 package br.com.starwarsapi.ListagemdeFilmes.films.controller;
 
 
-import br.com.starwarsapi.ListagemdeFilmes.films.client.FilmClient;
-import br.com.starwarsapi.ListagemdeFilmes.films.dto.StarWarsApiResponse;
+import br.com.starwarsapi.ListagemdeFilmes.films.model.StarWarsApiResponse;
 import br.com.starwarsapi.ListagemdeFilmes.films.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,12 +17,21 @@ public class FilmController {
     private FilmService filmService;
 
     @GetMapping
-    public StarWarsApiResponse findAll(){
+    public StarWarsApiResponse findAll() {
         return filmService.findAll();
     }
 
+
+
+
     @GetMapping("title/{title}")
-    public StarWarsApiResponse findMovieByTitle(@PathVariable String title){
+    public StarWarsApiResponse findMovieByTitle(@PathVariable String title) {
         return filmService.findMovieByTitle(title);
+    }
+
+    @GetMapping("episodeId/{episode_id}")
+    public StarWarsApiResponse findMovieById(@PathVariable Long id) {
+        return filmService.findMovieById(id);
+
     }
 }

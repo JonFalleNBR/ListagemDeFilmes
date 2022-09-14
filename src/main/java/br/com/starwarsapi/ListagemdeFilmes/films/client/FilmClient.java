@@ -1,6 +1,6 @@
 package br.com.starwarsapi.ListagemdeFilmes.films.client;
 
-import br.com.starwarsapi.ListagemdeFilmes.films.dto.StarWarsApiResponse;
+import br.com.starwarsapi.ListagemdeFilmes.films.model.StarWarsApiResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -19,6 +19,9 @@ public interface FilmClient {
 
     @GetMapping()
     Optional<StarWarsApiResponse> findByMovieTitle(@RequestParam(name = "search") String movieTitle);
+
+    @GetMapping()
+    Optional<StarWarsApiResponse> findMovieById(@RequestParam(name = "search") Long movieId);
 
 
 }

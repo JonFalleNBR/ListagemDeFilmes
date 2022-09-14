@@ -1,4 +1,4 @@
-package br.com.starwarsapi.ListagemdeFilmes.films.dto;
+package br.com.starwarsapi.ListagemdeFilmes.films.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
