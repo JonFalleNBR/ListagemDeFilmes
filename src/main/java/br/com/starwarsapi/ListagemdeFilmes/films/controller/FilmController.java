@@ -4,6 +4,7 @@ package br.com.starwarsapi.ListagemdeFilmes.films.controller;
 import br.com.starwarsapi.ListagemdeFilmes.films.model.FilmList;
 import br.com.starwarsapi.ListagemdeFilmes.films.model.StarWarsApiResponse;
 import br.com.starwarsapi.ListagemdeFilmes.films.model.dto.DescriptionDTO;
+import br.com.starwarsapi.ListagemdeFilmes.films.repository.FilmsRepository;
 import br.com.starwarsapi.ListagemdeFilmes.films.service.FilmService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,14 +19,14 @@ import java.util.List;
 @RequestMapping("/api/movies")
 public class FilmController {
 
+
+    @Autowired
+    FilmsRepository filmsRepository;
+
     @Autowired
     private FilmService filmService;
 
-    @RequestMapping("/")
-    public List<DescriptionDTO> lista(){
-        FilmList filmList = new FilmList("A new Hope", 4, "George Lucas", 1);
-        return DescriptionDTO.converter(Arrays.asList(filmList,filmList,filmList,filmList,filmList,filmList));
-    }
+
 
     @GetMapping
     public StarWarsApiResponse findAll() {
