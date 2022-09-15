@@ -1,5 +1,6 @@
 package br.com.starwarsapi.ListagemdeFilmes.films.model;
 
+import br.com.starwarsapi.ListagemdeFilmes.films.model.dto.DescriptionDTO;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

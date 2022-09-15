@@ -27,4 +27,8 @@ public interface FilmClient {
     @GetMapping()
     Optional<StarWarsApiResponse> findByProducer(@RequestParam(name = "search") String producer);
 
+
+    @GetMapping()
+    Optional<StarWarsApiResponse> lista(@RequestParam(name = "search") Integer id);
+
 }

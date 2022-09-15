@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+
 
 @RestController
 @RequestMapping("/api/movies")
@@ -26,11 +26,10 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
 
-
-
     @GetMapping
     public StarWarsApiResponse findAll() {
         return filmService.findAll();
+
     }
 
 
@@ -39,14 +38,9 @@ public class FilmController {
         return filmService.findMovieByTitle(title);
     }
 
-    @GetMapping("producer/{producer}")
-    public StarWarsApiResponse findByProducer(@PathVariable String producer) {
-        return filmService.findByProducer(producer);
-    }
+//    public List<DescriptionDTO> listProducer(String producer) {
+//        List<FilmList> producers = filmsRepository.findByProducer(producer);
+//        return DescriptionDTO.converter(producers);
+//    }
 
-    @GetMapping("id/{episode_id}")
-    public StarWarsApiResponse findMovieById(@PathVariable Long id) {
-        return filmService.findMovieById(id);
-
-    }
 }

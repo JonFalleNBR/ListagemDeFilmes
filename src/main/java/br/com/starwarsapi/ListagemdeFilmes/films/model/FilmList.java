@@ -2,7 +2,6 @@ package br.com.starwarsapi.ListagemdeFilmes.films.model;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
